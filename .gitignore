@@ -1,0 +1,20 @@
+# Maven
+target/
+
+# Java
+*.class
+
+# macOS
+.DS_Store
+
+# macOS archive metadata
+__MACOSX/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.settings/
+.classpath
+.project

@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Restful Booker API Suite" verbose="1">
+
+    <test name="API Regression">
+
+        <classes>
+
+            <class name="com.example.api.tests.HealthTests"/>
+            <class name="com.example.api.tests.AuthTests"/>
+            <class name="com.example.api.tests.BookingReadTests"/>
+            <class name="com.example.api.tests.BookingCrudTests"/>
+            <class name="com.example.api.tests.ContentNegotiationTests"/>
+
+            <class name="com.example.api.tests.ExtendedCrudValidationTests"/>
+            <class name="com.example.api.tests.BoundaryAndQueryTests"/>
+            <class name="com.example.api.tests.HttpQualityTests"/>
+
+        </classes>
+
+    </test>
+
+</suite>
