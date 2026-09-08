@@ -12,13 +12,10 @@ import io.restassured.response.Response;
 
 public class ExtendedCrudValidationTests extends BaseTest {
 
-    private String token;
-
     @BeforeClass
     public void authenticateForAdditionalTests() {
 
         authenticate();
-        token = this.token;
     }
 
     private int createBooking() {

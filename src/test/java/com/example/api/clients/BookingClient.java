@@ -101,8 +101,8 @@ public class BookingClient {
 
 	public Response putBookingBasicAuth(int id, Booking booking) {
 
-		return given(spec).auth().preemptive().basic("admin", "password123").pathParam("id", id).body(booking).when()
-				.put("/booking/{id}");
+		return given(spec).auth().preemptive().basic(ConfigManager.username(), ConfigManager.password())
+				.pathParam("id", id).body(booking).when().put("/booking/{id}");
 	}
 
 	public Response putBookingJson(int id, String token, String json) {
@@ -123,8 +123,8 @@ public class BookingClient {
 
 	public Response patchBookingBasicAuth(int id, String json) {
 
-		return given(spec).auth().preemptive().basic("admin", "password123").pathParam("id", id).body(json).when()
-				.patch("/booking/{id}");
+		return given(spec).auth().preemptive().basic(ConfigManager.username(), ConfigManager.password())
+				.pathParam("id", id).body(json).when().patch("/booking/{id}");
 	}
 
 	// ---------------------------------------------------------
@@ -170,8 +170,8 @@ public class BookingClient {
 	// =========================================================
 
 	public Response deleteBookingBasicAuth(int id) {
-		return given(spec).auth().preemptive().basic("admin", "password123").pathParam("id", id).when()
-				.delete("/booking/{id}");
+		return given(spec).auth().preemptive().basic(ConfigManager.username(), ConfigManager.password())
+				.pathParam("id", id).when().delete("/booking/{id}");
 	}
 
 	public Response deleteBookingWithInvalidToken(int id, String token) {

@@ -8,7 +8,6 @@ import com.example.api.config.ConfigManager;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public abstract class BaseTest {
@@ -19,7 +18,7 @@ public abstract class BaseTest {
 
     @BeforeClass(alwaysRun = true)
     public void setUpFramework() {
-       requestSpec = new RequestSpecBuilder()
+        requestSpec = new RequestSpecBuilder()
                 .setBaseUri(ConfigManager.baseUri())
                 .setContentType(ContentType.JSON)
                 .setAccept("application/json")
@@ -30,13 +29,8 @@ public abstract class BaseTest {
     }
 
     protected void authenticate() {
-        Response response = authClient.createTokenResponse(
+        token = authClient.createToken(
                 ConfigManager.username(),
                 ConfigManager.password());
-
-        token = response.then()
-                .statusCode(200)
-                .extract()
-                .path("token");
     }
 }
